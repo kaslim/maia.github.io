@@ -1,0 +1,683 @@
+/* ===================================
+   MAIA Demo - Responsive Design
+   ================================== */
+
+/* === Large Desktop (1440px+) === */
+@media (min-width: 1440px) {
+    :root {
+        --font-size-base: 18px;
+        --container-max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 6rem;
+    }
+}
+
+/* === Desktop (1024px - 1439px) === */
+@media (max-width: 1439px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+}
+
+/* === Tablet Landscape (768px - 1023px) === */
+@media (max-width: 1023px) {
+    :root {
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    /* Navigation */
+    .nav-links {
+        gap: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Hero */
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-xl);
+    }
+    
+    .hero-meta {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    /* Motivation Section */
+    .motivation-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .stat-boxes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Method Section */
+    .method-step {
+        grid-template-columns: 80px 1fr;
+    }
+    
+    .step-number {
+        font-size: 3rem;
+    }
+    
+    .step-details {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Demo Section */
+    .audio-players-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Results Section */
+    .performance-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Resources Section */
+    .application-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === Tablet Portrait (481px - 767px) === */
+@media (max-width: 767px) {
+    :root {
+        --font-size-base: 15px;
+        --spacing-md: 1.5rem;
+        --spacing-lg: 2.5rem;
+        --spacing-xl: 3rem;
+    }
+    
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    /* Navigation */
+    .navbar .container {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .nav-links {
+        display: none; /* Hide on mobile - would need hamburger menu */
+    }
+    
+    .nav-brand {
+        font-size: var(--font-size-lg);
+    }
+    
+    /* Hero */
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-lg);
+    }
+    
+    .hero-description {
+        font-size: var(--font-size-base);
+    }
+    
+    .hero-meta {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-meta .separator {
+        display: none;
+    }
+    
+    /* Section Titles */
+    .section-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .section-subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    /* Motivation Section */
+    .stat-boxes {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .approach-comparison {
+        gap: var(--spacing-sm);
+    }
+    
+    .key-insight {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Method Section */
+    .method-step {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-md);
+    }
+    
+    .step-number {
+        font-size: 2.5rem;
+        text-align: left;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .step-details {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .inpainting-comparison {
+        flex-direction: column;
+    }
+    
+    .arrow {
+        transform: rotate(90deg);
+    }
+    
+    /* Demo Section */
+    .demo-container {
+        padding: var(--spacing-md);
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .player-controls {
+        flex-wrap: wrap;
+    }
+    
+    .btn-play {
+        flex: 1 1 100%;
+    }
+    
+    .volume-slider {
+        flex: 1;
+    }
+    
+    .time-display {
+        flex: 1;
+        text-align: left;
+    }
+    
+    .btn-sync {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Results Section */
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .table-responsive {
+        overflow-x: scroll;
+    }
+    
+    .metrics-table {
+        font-size: var(--font-size-sm);
+    }
+    
+    .metrics-table th,
+    .metrics-table td {
+        padding: var(--spacing-xs);
+    }
+    
+    /* Resources Section */
+    .application-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .resource-link {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .link-arrow {
+        display: none;
+    }
+}
+
+/* === Mobile (320px - 480px) === */
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 14px;
+        --spacing-sm: 0.75rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 2.5rem;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Hero */
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    .hero-description {
+        font-size: var(--font-size-sm);
+    }
+    
+    .hero-meta {
+        font-size: 0.75rem;
+    }
+    
+    .authors {
+        display: none; /* Hide authors on very small screens */
+    }
+    
+    /* Section Titles */
+    .section-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .section-subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Stat Boxes */
+    .stat-box {
+        padding: var(--spacing-sm);
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Method Steps */
+    .method-step {
+        padding: var(--spacing-sm);
+    }
+    
+    .step-number {
+        font-size: 2rem;
+    }
+    
+    .detail-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .formula {
+        font-size: 0.7rem;
+        padding: var(--spacing-xs);
+    }
+    
+    /* Demo Section */
+    .demo-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .waveform {
+        min-height: 80px;
+    }
+    
+    .player-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .player-card h3 {
+        font-size: var(--font-size-base);
+    }
+    
+    .btn-play {
+        padding: 0.5rem 1rem;
+        font-size: var(--font-size-sm);
+    }
+    
+    .btn-sync {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .info-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .genre-label {
+        font-size: var(--font-size-lg) !important;
+    }
+    
+    .metrics-list {
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Results Section */
+    .perf-card {
+        padding: var(--spacing-md);
+    }
+    
+    .metric-value.large {
+        font-size: 2rem;
+    }
+    
+    .chart {
+        min-height: 250px;
+    }
+    
+    /* Resources Section */
+    .app-icon {
+        font-size: 2rem;
+    }
+    
+    .citation-box {
+        padding: var(--spacing-sm);
+    }
+    
+    .citation-box pre {
+        font-size: 0.7rem;
+        overflow-x: scroll;
+    }
+    
+    .btn-copy {
+        position: static;
+        width: 100%;
+        margin-top: var(--spacing-sm);
+    }
+}
+
+/* === Extra Small Mobile (< 360px) === */
+@media (max-width: 359px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .stat-boxes {
+        font-size: var(--font-size-sm);
+    }
+    
+    .method-step {
+        gap: var(--spacing-sm);
+    }
+    
+    .waveform {
+        min-height: 60px;
+    }
+}
+
+/* === Landscape Orientation === */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* === Touch Device Optimizations === */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase tap target sizes */
+    .btn-play,
+    .btn-sync,
+    .region-marker {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .nav-links a {
+        padding: var(--spacing-sm);
+    }
+    
+    /* Remove hover effects */
+    .hover-lift:hover,
+    .hover-scale:hover {
+        transform: none;
+    }
+    
+    /* Simplify animations */
+    .floating,
+    .pulse {
+        animation: none;
+    }
+}
+
+/* === Print Styles === */
+@media print {
+    * {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .navbar,
+    .scroll-indicator,
+    .btn-play,
+    .btn-sync,
+    .player-controls,
+    footer {
+        display: none !important;
+    }
+    
+    .hero-section {
+        min-height: auto;
+        padding: 2cm 0;
+        background: none !important;
+    }
+    
+    #particles-canvas {
+        display: none;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+    
+    .section-padding {
+        padding: 1cm 0;
+    }
+    
+    .waveform {
+        border: 1px solid #333;
+        min-height: 3cm;
+    }
+}
+
+/* === High Contrast Mode === */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: #000;
+        --color-shadow: rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-play,
+    .btn-sync {
+        border: 2px solid #000;
+    }
+    
+    .waveform {
+        border: 2px solid #000;
+    }
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .floating,
+    .pulse,
+    .rotating,
+    .bounce {
+        animation: none !important;
+    }
+}
+
+/* === Dark Mode === */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #1a1a1a;
+        --color-bg-dark: #0a0a0a;
+        --color-text: #f8f9fa;
+        --color-text-light: #adb5bd;
+        --color-border: #343a40;
+        --color-shadow: rgba(0, 0, 0, 0.5);
+    }
+    
+    body {
+        background: var(--color-bg);
+        color: var(--color-text);
+    }
+    
+    .navbar {
+        background: rgba(26, 26, 26, 0.95);
+    }
+    
+    .motivation-section,
+    .demo-section,
+    .resources-section {
+        background: #0a0a0a;
+    }
+    
+    .method-section,
+    .results-section {
+        background: #1a1a1a;
+    }
+    
+    .player-card,
+    .info-card,
+    .perf-card,
+    .chart-card,
+    .method-step,
+    .app-card,
+    .comparison-card {
+        background: #2c2c2c;
+        color: var(--color-text);
+    }
+    
+    .waveform,
+    .demo-container,
+    .attack-info-panel,
+    .regions-timeline {
+        background: #1a1a1a;
+    }
+    
+    .citation-box {
+        background: #2c2c2c;
+    }
+    
+    .metrics-table th {
+        background: #343a40;
+    }
+    
+    .approach-tag {
+        background: #343a40;
+    }
+}
+
+/* === Accessibility Improvements === */
+@media screen and (min-width: 1024px) {
+    /* Skip to content link for keyboard users */
+    .skip-to-content {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--color-primary);
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        z-index: 100;
+    }
+    
+    .skip-to-content:focus {
+        top: 0;
+    }
+}
+
+/* === Container Queries (Future-proofing) === */
+@supports (container-type: inline-size) {
+    .demo-container {
+        container-type: inline-size;
+    }
+    
+    @container (max-width: 600px) {
+        .audio-players-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+/* === Grid Layout Fallbacks === */
+@supports not (display: grid) {
+    .motivation-grid,
+    .audio-players-grid,
+    .info-grid,
+    .performance-grid,
+    .charts-container,
+    .application-cards {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .motivation-grid > *,
+    .audio-players-grid > *,
+    .info-grid > *,
+    .performance-grid > *,
+    .charts-container > *,
+    .application-cards > * {
+        flex: 1 1 300px;
+        margin: var(--spacing-sm);
+    }
+}
+
+/* === Flexbox Fallbacks === */
+@supports not (display: flex) {
+    .player-controls,
+    .hero-meta,
+    .metric-row {
+        display: block;
+    }
+    
+    .player-controls > * {
+        display: inline-block;
+        margin: var(--spacing-xs);
+    }
+}
+

@@ -1,0 +1,463 @@
+/* ===================================
+   MAIA Demo - Audio Player Styles
+   ================================== */
+
+/* === Waveform Container === */
+.waveform {
+    min-height: 120px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.waveform wave {
+    cursor: pointer !important;
+}
+
+/* === Player Controls === */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.btn-play {
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary, #0173B2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 100px;
+    justify-content: center;
+}
+
+.btn-play:hover {
+    background: var(--color-accent, #029E73);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(1, 115, 178, 0.3);
+}
+
+.btn-play:active {
+    transform: translateY(0);
+}
+
+.btn-play.playing {
+    background: var(--color-accent, #029E73);
+}
+
+/* === Volume Control === */
+.volume-slider {
+    flex: 0 0 120px;
+    height: 6px;
+    background: #dee2e6;
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--color-primary, #0173B2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    background: var(--color-accent, #029E73);
+    transform: scale(1.2);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--color-primary, #0173B2);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    background: var(--color-accent, #029E73);
+    transform: scale(1.2);
+}
+
+/* === Time Display === */
+.time-display {
+    flex: 1;
+    text-align: right;
+    font-size: 0.875rem;
+    color: #6c757d;
+    font-family: 'Courier New', monospace;
+    white-space: nowrap;
+}
+
+/* === Waveform Progress === */
+.waveform-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(1, 115, 178, 0.3), 
+        rgba(2, 158, 115, 0.3));
+    pointer-events: none;
+    transition: width 0.1s linear;
+}
+
+/* === Playback Position Indicator === */
+.playback-cursor {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--color-primary, #0173B2);
+    box-shadow: 0 0 4px rgba(1, 115, 178, 0.6);
+    pointer-events: none;
+    z-index: 10;
+    transition: left 0.1s linear;
+}
+
+.playback-cursor::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary, #0173B2);
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(1, 115, 178, 0.8);
+}
+
+/* === Loading State === */
+.waveform.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton 1.5s infinite;
+}
+
+.waveform.loading::before {
+    content: "Loading audio...";
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* === Error State === */
+.waveform.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffe5e5;
+    border: 1px solid #ffcccc;
+}
+
+.waveform.error::before {
+    content: "⚠️ Failed to load audio";
+    color: #d55e00;
+    font-size: 0.875rem;
+}
+
+/* === WaveSurfer Wave Colors === */
+wavesurfer wave {
+    background: transparent !important;
+}
+
+/* Custom waveform colors */
+.waveform-original wave {
+    color: #0173B2 !important;
+}
+
+.waveform-adversarial wave {
+    color: #029E73 !important;
+}
+
+/* === Synchronized Playback Indicator === */
+.sync-active {
+    border: 2px solid var(--color-accent, #029E73);
+    box-shadow: 0 0 12px rgba(2, 158, 115, 0.4);
+}
+
+/* === Hover Effects === */
+.player-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* === Disabled State === */
+.btn-play:disabled {
+    background: #dee2e6;
+    color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-play:disabled:hover {
+    background: #dee2e6;
+    transform: none;
+    box-shadow: none;
+}
+
+/* === Custom Scrollbar for Waveform === */
+.waveform::-webkit-scrollbar {
+    height: 8px;
+}
+
+.waveform::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.waveform::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.waveform::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* === Audio Visualizer Bars (Alternative) === */
+.audio-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 100px;
+    gap: 2px;
+}
+
+.audio-bar {
+    flex: 1;
+    background: linear-gradient(to top, var(--color-primary, #0173B2), var(--color-accent, #029E73));
+    border-radius: 2px 2px 0 0;
+    min-height: 10%;
+    transition: height 0.1s ease;
+}
+
+.audio-bar.active {
+    animation: barPulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes barPulse {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
+/* === Timeline Markers === */
+.timeline-marker {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(213, 94, 0, 0.5);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.timeline-marker::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* === Region Highlights (for inpainting regions) === */
+.waveform-region {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(213, 94, 0, 0.2);
+    border-left: 2px solid #d55e00;
+    border-right: 2px solid #d55e00;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.waveform-region:hover {
+    background: rgba(213, 94, 0, 0.3);
+}
+
+/* === Playback Speed Control === */
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.speed-button {
+    padding: 0.25rem 0.5rem;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.speed-button:hover {
+    background: #e9ecef;
+}
+
+.speed-button.active {
+    background: var(--color-primary, #0173B2);
+    color: white;
+    border-color: var(--color-primary, #0173B2);
+}
+
+/* === Audio Format Badge === */
+.audio-format {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+    z-index: 10;
+}
+
+/* === Peak Meter === */
+.peak-meter {
+    height: 4px;
+    background: #dee2e6;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.peak-meter-fill {
+    height: 100%;
+    background: linear-gradient(to right, #029E73, #DE8F05, #D55E00);
+    transition: width 0.05s linear;
+    border-radius: 2px;
+}
+
+/* === Compact Player Mode === */
+.player-card.compact {
+    padding: 1rem;
+}
+
+.player-card.compact .waveform {
+    min-height: 60px;
+}
+
+.player-card.compact .player-controls {
+    gap: 0.5rem;
+}
+
+.player-card.compact .btn-play {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* === Stereo Waveform (L/R channels) === */
+.waveform-stereo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.waveform-channel {
+    flex: 1;
+    min-height: 50px;
+}
+
+.waveform-channel.left {
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* === Mobile Optimizations === */
+@media (max-width: 768px) {
+    .player-controls {
+        flex-wrap: wrap;
+    }
+    
+    .btn-play {
+        flex: 1 1 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .volume-slider {
+        flex: 1;
+    }
+    
+    .time-display {
+        flex: 1;
+        text-align: center;
+    }
+    
+    .waveform {
+        min-height: 80px;
+    }
+}
+
+/* === Accessibility === */
+.player-controls button:focus,
+.volume-slider:focus {
+    outline: 2px solid var(--color-primary, #0173B2);
+    outline-offset: 2px;
+}
+
+/* === Dark Mode Support === */
+@media (prefers-color-scheme: dark) {
+    .waveform {
+        background: #2c2c2c;
+    }
+    
+    .player-card {
+        background: #1a1a1a;
+        color: #f8f9fa;
+    }
+    
+    .time-display {
+        color: #adb5bd;
+    }
+    
+    .waveform.loading {
+        background: linear-gradient(90deg, #2c2c2c 25%, #3a3a3a 50%, #2c2c2c 75%);
+    }
+}
+
+/* === Print Styles === */
+@media print {
+    .player-controls,
+    .btn-play,
+    .volume-slider {
+        display: none;
+    }
+    
+    .waveform {
+        min-height: 100px;
+        border: 1px solid #dee2e6;
+    }
+}
+

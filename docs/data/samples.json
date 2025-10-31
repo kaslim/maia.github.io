@@ -1,0 +1,228 @@
+{
+  "samples": [
+    {
+      "id": "blues_00",
+      "genre": "Blues",
+      "original_audio": "data/audio/blues_00_original.wav",
+      "adversarial_audio": "data/audio/blues_00_adversarial.wav",
+      "original_prediction": "Blues",
+      "adversarial_prediction": "Jazz",
+      "original_confidence": 0.92,
+      "adversarial_confidence": 0.7,
+      "inpainting_regions": [
+        [
+          5.0,
+          5.4
+        ],
+        [
+          12.0,
+          12.3
+        ],
+        [
+          18.0,
+          18.5
+        ]
+      ],
+      "attack_success": true,
+      "metrics": {
+        "fad": 11.6,
+        "lsd": 1.88,
+        "mos": 3.9
+      }
+    },
+    {
+      "id": "blues_01",
+      "genre": "Blues",
+      "original_audio": "data/audio/blues_01_original.wav",
+      "adversarial_audio": "data/audio/blues_01_adversarial.wav",
+      "original_prediction": "Blues",
+      "adversarial_prediction": "Rock",
+      "original_confidence": 0.91,
+      "adversarial_confidence": 0.61,
+      "inpainting_regions": [
+        [
+          6.5,
+          6.9
+        ],
+        [
+          14.0,
+          14.4
+        ]
+      ],
+      "attack_success": true,
+      "metrics": {
+        "fad": 12.78,
+        "lsd": 1.93,
+        "mos": 3.9
+      }
+    },
+    {
+      "id": "classical_00",
+      "genre": "Classical",
+      "original_audio": "data/audio/classical_00_original.wav",
+      "adversarial_audio": "data/audio/classical_00_adversarial.wav",
+      "original_prediction": "Classical",
+      "adversarial_prediction": "Ambient",
+      "original_confidence": 0.79,
+      "adversarial_confidence": 0.47,
+      "inpainting_regions": [
+        [
+          4.0,
+          4.5
+        ],
+        [
+          10.0,
+          10.3
+        ],
+        [
+          20.0,
+          20.4
+        ]
+      ],
+      "attack_success": true,
+      "metrics": {
+        "fad": 12.44,
+        "lsd": 2.02,
+        "mos": 4.1
+      }
+    },
+    {
+      "id": "classical_01",
+      "genre": "Classical",
+      "original_audio": "data/audio/classical_01_original.wav",
+      "adversarial_audio": "data/audio/classical_01_adversarial.wav",
+      "original_prediction": "Classical",
+      "adversarial_prediction": "Classical",
+      "original_confidence": 0.88,
+      "adversarial_confidence": 0.48,
+      "inpainting_regions": [
+        [
+          7.0,
+          7.3
+        ],
+        [
+          15.0,
+          15.5
+        ]
+      ],
+      "attack_success": false,
+      "metrics": {
+        "fad": 12.36,
+        "lsd": 1.6,
+        "mos": 4.2
+      }
+    },
+    {
+      "id": "country_00",
+      "genre": "Country",
+      "original_audio": "data/audio/country_00_original.wav",
+      "adversarial_audio": "data/audio/country_00_adversarial.wav",
+      "original_prediction": "Country",
+      "adversarial_prediction": "Folk",
+      "original_confidence": 0.88,
+      "adversarial_confidence": 0.68,
+      "inpainting_regions": [
+        [
+          5.5,
+          5.9
+        ],
+        [
+          13.0,
+          13.4
+        ],
+        [
+          22.0,
+          22.3
+        ]
+      ],
+      "attack_success": true,
+      "metrics": {
+        "fad": 12.29,
+        "lsd": 1.69,
+        "mos": 4.1
+      }
+    },
+    {
+      "id": "country_01",
+      "genre": "Country",
+      "original_audio": "data/audio/country_01_original.wav",
+      "adversarial_audio": "data/audio/country_01_adversarial.wav",
+      "original_prediction": "Country",
+      "adversarial_prediction": "Pop",
+      "original_confidence": 0.88,
+      "adversarial_confidence": 0.48,
+      "inpainting_regions": [
+        [
+          8.0,
+          8.4
+        ],
+        [
+          16.0,
+          16.5
+        ]
+      ],
+      "attack_success": true,
+      "metrics": {
+        "fad": 11.98,
+        "lsd": 1.78,
+        "mos": 3.9
+      }
+    },
+    {
+      "id": "pop_00",
+      "genre": "Pop",
+      "original_audio": "data/audio/pop_00_original.wav",
+      "adversarial_audio": "data/audio/pop_00_adversarial.wav",
+      "original_prediction": "Pop",
+      "adversarial_prediction": "Dance",
+      "original_confidence": 0.8,
+      "adversarial_confidence": 0.52,
+      "inpainting_regions": [
+        [
+          3.0,
+          3.5
+        ],
+        [
+          11.0,
+          11.3
+        ],
+        [
+          19.0,
+          19.5
+        ]
+      ],
+      "attack_success": true,
+      "metrics": {
+        "fad": 11.53,
+        "lsd": 1.62,
+        "mos": 3.6
+      }
+    },
+    {
+      "id": "pop_01",
+      "genre": "Pop",
+      "original_audio": "data/audio/pop_01_original.wav",
+      "adversarial_audio": "data/audio/pop_01_adversarial.wav",
+      "original_prediction": "Pop",
+      "adversarial_prediction": "Pop",
+      "original_confidence": 0.93,
+      "adversarial_confidence": 0.56,
+      "inpainting_regions": [
+        [
+          6.0,
+          6.4
+        ],
+        [
+          14.5,
+          14.9
+        ]
+      ],
+      "attack_success": false,
+      "metrics": {
+        "fad": 11.01,
+        "lsd": 1.7,
+        "mos": 4.1
+      }
+    }
+  ]
+}
