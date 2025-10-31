@@ -1,169 +1,269 @@
-# MAIA: Music Adversarial Inpainting Attack - Demo Website
+# MAIA Interactive Demo Website
 
-This repository contains the interactive demonstration website for the paper:
+An interactive demonstration website for the **MAIA (Music Adversarial Inpainting Attack)** paper presented at ISMIR 2025.
 
-**"MAIA: An Inpainting-Based Approach for Music Adversarial Attacks"**  
-Accepted at ISMIR 2025
+## 🎵 Overview
 
-## 🎵 Project Overview
+This website showcases our research on importance-driven adversarial attacks for Music Information Retrieval (MIR) systems using music inpainting techniques.
 
-MAIA (Music Adversarial Inpainting Attack) is a novel adversarial attack framework for Music Information Retrieval (MIR) systems that uses importance-driven segment selection and music inpainting to generate effective yet perceptually natural adversarial examples.
+### Key Features
 
-### Key Contributions
+- **Interactive Audio Demo**: Listen to original and adversarial audio samples with synchronized playback
+- **Real-time Waveform Visualization**: See audio waveforms using WaveSurfer.js
+- **Importance Analysis Visualization**: View Grad-CAM heatmaps and segment selection
+- **Performance Metrics**: Interactive D3.js charts showing attack success rates and perceptual quality
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 
-1. **Importance-Driven Targeting**: Uses Grad-CAM (white-box) or coarse-to-fine analysis (black-box) to identify critical music segments
-2. **Inpainting-Based Perturbations**: Reconstructs selected segments using GACELA inpainting model with adversarial guidance
-3. **Superior Performance**: Achieves 92.8% white-box and 80.1% black-box attack success rates while maintaining high perceptual quality (MOS: 4.0/5)
-
-## 📁 Repository Structure
+## 📁 Project Structure
 
 ```
-maia-demo/
-├── generate_adversarial_samples.py   # Script to generate adversarial audio samples
-├── docs/                             # GitHub Pages website
-│   ├── index.html                    # Main website file
-│   ├── css/                          # Stylesheets (4 files)
-│   ├── js/                           # JavaScript files (5 files)
-│   ├── data/                         # Audio files and metadata
-│   │   ├── audio/                    # 16 audio files (8 original + 8 adversarial)
-│   │   ├── samples.json             # Sample metadata
-│   │   └── metrics.json             # Performance metrics
-│   └── README.md                     # Website documentation
-└── README.md                         # This file
+docs/
+├── index.html           # Main HTML file with 6 sections
+├── css/
+│   ├── main.css         # Global styles and layout
+│   ├── animations.css   # Keyframe animations and transitions
+│   ├── audio-player.css # Custom audio player styling
+│   └── responsive.css   # Mobile and tablet responsive design
+├── js/
+│   ├── main.js          # Core functionality and data loading
+│   ├── audio-player.js  # WaveSurfer.js audio player integration
+│   ├── visualizations.js # D3.js charts and visualizations
+│   ├── demo.js          # Interactive demo logic
+│   └── scroll-effects.js # Scroll animations and parallax effects
+├── data/
+│   ├── audio/           # Original and adversarial audio files (16 files)
+│   ├── samples.json     # Sample metadata (8 samples)
+│   └── metrics.json     # Performance metrics for charts
+└── README.md            # This file
 ```
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### 1. Generate Adversarial Samples
+### Local Development
 
-```bash
-cd maia-demo
-python generate_adversarial_samples.py
-```
+1. **Simple HTTP Server** (Python 3):
+   ```bash
+   cd docs
+   python -m http.server 8000
+   ```
+   Then open http://localhost:8000 in your browser.
 
-This will:
-- Load 8 original audio samples from IDS-NMR dataset
-- Generate adversarial versions with 2-3 short inpainting regions (<0.5s each)
-- Save outputs to `docs/data/audio/`
-- Create `samples.json` and `metrics.json` metadata files
+2. **Node.js Server**:
+   ```bash
+   cd docs
+   npx http-server -p 8000
+   ```
 
-### 2. View Website Locally
+3. **VS Code Live Server**:
+   - Install "Live Server" extension
+   - Right-click on `index.html` → "Open with Live Server"
 
-```bash
-cd docs
-python -m http.server 8000
-```
+### GitHub Pages Deployment
 
-Then open http://localhost:8000 in your browser.
+1. **Push to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Add MAIA demo website"
+   git push origin main
+   ```
 
-### 3. Deploy to GitHub Pages
+2. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: `main`
+   - Folder: `/docs`
+   - Click "Save"
 
-```bash
-git add .
-git commit -m "Add MAIA demo website"
-git push origin main
-```
+3. **Access Your Site**:
+   - Your site will be available at: `https://[username].github.io/[repository]/`
+   - It may take 1-2 minutes to build
 
-Enable GitHub Pages in repository settings:
-- Settings → Pages
-- Source: Deploy from branch → `main` → `/docs` → Save
+## 🎨 Customization
 
-Your site will be available at: `https://[username].github.io/[repo-name]/`
+### Changing Colors
 
-## 🎯 Website Features
+Edit CSS variables in `css/main.css`:
 
-The interactive demo website includes:
-
-- **🎵 Audio Playback**: Listen to original vs. adversarial samples with synchronized playback
-- **📊 Visualizations**: D3.js charts showing attack success rates and perceptual quality
-- **🎨 Waveforms**: Real-time audio waveform display using WaveSurfer.js
-- **📍 Region Markers**: Click on inpainting regions to jump to that time in audio
-- **📈 Performance Metrics**: Detailed comparison with baseline methods
-- **📱 Responsive Design**: Works on desktop, tablet, and mobile devices
-
-## 📊 Results Summary
-
-### White-Box Attacks (Cover Song Identification)
-
-| Method | ASR ↑ | mAP ↓ | FAD ↓ | LSD ↓ | MOS ↑ |
-|--------|-------|-------|-------|-------|-------|
-| PGD    | 82.1% | 0.619 | 12.64 | 2.10  | 3.1   |
-| C&W    | 88.5% | 0.560 | 12.11 | 1.94  | 3.4   |
-| **MAIA-WB** | **92.8%** | **0.488** | **11.25** | **1.58** | **4.0** |
-
-### Black-Box Attacks (Cover Song Identification)
-
-| Method | ASR ↑ | mAP ↓ | FAD ↓ | LSD ↓ | MOS ↑ |
-|--------|-------|-------|-------|-------|-------|
-| NES    | 70.2% | 0.682 | 13.93 | 2.27  | 2.8   |
-| ZOO    | 74.9% | 0.639 | 13.51 | 2.12  | 3.0   |
-| **MAIA-BB** | **80.1%** | **0.594** | **12.56** | **1.90** | **3.6** |
-
-## 🔧 Technical Requirements
-
-### For Sample Generation
-
-```bash
-pip install numpy soundfile scipy
-```
-
-### For Website
-
-- Modern web browser (Chrome 90+, Firefox 88+, Safari 14+)
-- No installation required (uses CDN for dependencies)
-
-## 📄 Paper Citation
-
-If you use this code or our method, please cite:
-
-```bibtex
-@inproceedings{maia2025,
-  title={MAIA: Music Adversarial Inpainting Attack},
-  author={Liu, Yuxuan and Zhang, Peihong and Sang, Rui and Li, Zhixin and Li, Shengchen},
-  booktitle={Proceedings of the International Society for Music Information Retrieval Conference},
-  year={2025}
+```css
+:root {
+    --color-primary: #0173B2;      /* Blue */
+    --color-secondary: #DE8F05;    /* Orange */
+    --color-accent: #029E73;       /* Green */
 }
 ```
 
-## 🔗 Links
+### Adding More Samples
 
-- **Paper**: [ISMIR 2025 Proceedings] (Coming soon)
-- **Demo Website**: [GitHub Pages] (After deployment)
-- **Anonymous Submission**: https://anonymous.4open.science/
+1. Add audio files to `data/audio/`:
+   - `{genre}_{id}_original.wav`
+   - `{genre}_{id}_adversarial.wav`
 
-## 👥 Authors
+2. Update `data/samples.json`:
+   ```json
+   {
+     "id": "genre_id",
+     "genre": "Genre Name",
+     "original_audio": "data/audio/genre_id_original.wav",
+     "adversarial_audio": "data/audio/genre_id_adversarial.wav",
+     "original_prediction": "Original Genre",
+     "adversarial_prediction": "Predicted Genre",
+     "original_confidence": 0.89,
+     "adversarial_confidence": 0.67,
+     "inpainting_regions": [[5.0, 5.4], [12.0, 12.3]],
+     "attack_success": true,
+     "metrics": {
+       "fad": 11.25,
+       "lsd": 1.58,
+       "mos": 4.0
+     }
+   }
+   ```
 
-- **Yuxuan Liu** - Xi'an Jiaotong-Liverpool University
-- **Peihong Zhang** - Xi'an Jiaotong-Liverpool University
-- **Rui Sang** - Xi'an Jiaotong-Liverpool University
-- **Zhixin Li** - Xi'an Jiaotong-Liverpool University
-- **Shengchen Li** - Xi'an Jiaotong-Liverpool University
+### Updating Metrics
 
-## 📧 Contact
+Edit `data/metrics.json` to update the performance comparison charts.
 
-For questions or collaborations:
-- Email: shengchen.li@xjtlu.edu.cn
-- Issues: Please open an issue on GitHub
+## 📊 Data Files
 
-## 🙏 Acknowledgments
+### samples.json
 
-This work was supported by:
-- Jiangsu Science and Technology Programme (Grant No. BG2024027)
-- Suzhou Science and Technology Development Planning Programme (Grant No. ZXL2022472)
-- XJTLU Research Development Fund (Grant No. RDF-22-02-046)
+Contains metadata for all audio samples:
+- Audio file paths
+- Predictions and confidence scores
+- Inpainting region locations
+- Attack success status
+- Perceptual quality metrics
 
-We thank the developers of:
-- **GACELA**: Music inpainting model
-- **WaveSurfer.js**: Audio waveform visualization
-- **D3.js**: Data visualization library
-- **DiffMusic**: Music diffusion model framework
+### metrics.json
+
+Contains performance metrics for charts:
+- Attack Success Rate (ASR)
+- Mean Average Precision (mAP) / Accuracy
+- Fréchet Audio Distance (FAD)
+- Log-Spectral Distance (LSD)
+- Mean Opinion Score (MOS)
+
+## 🔧 Technical Details
+
+### Dependencies (via CDN)
+
+- **WaveSurfer.js v7**: Audio waveform visualization
+- **D3.js v7**: Data visualizations and charts
+- **Inter Font**: Typography (Google Fonts)
+
+### Browser Compatibility
+
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+### Performance
+
+- Initial load: < 3 seconds
+- Audio file size: ~1.3MB each (16 files total)
+- Lazy loading: Audio files load on demand
+- Optimized animations: 60 FPS on modern devices
+
+## 🎯 Features
+
+### Section 1: Hero Landing
+- Animated particle background
+- Responsive hero title and description
+- Smooth scroll indicator
+
+### Section 2: Problem & Motivation
+- Problem statement with statistics
+- Comparison: Noise-based vs. MAIA
+- Key insights and achievements
+
+### Section 3: Method Overview
+- Three-step visualization
+- Importance analysis (Grad-CAM, Coarse-to-Fine)
+- Adversarial inpainting process
+
+### Section 4: Interactive Audio Demo ⭐
+- Sample selector (8 audio samples)
+- Dual waveform players (original vs. adversarial)
+- Synchronized A/B playback
+- Attack info panel with predictions and confidence
+- Inpainting regions timeline with clickable markers
+
+### Section 5: Results Showcase
+- Performance cards (White-box & Black-box)
+- Interactive D3.js charts
+- Detailed metrics table
+
+### Section 6: Resources & Impact
+- Applications and use cases
+- GitHub repository link
+- Citation with one-click copy
+- Contact information
+
+## 🌐 Accessibility
+
+- Semantic HTML5 structure
+- ARIA labels for controls
+- Keyboard navigation support
+- High contrast mode compatible
+- Reduced motion support
+
+## 📱 Responsive Breakpoints
+
+- Desktop: 1024px+
+- Tablet Landscape: 768px - 1023px
+- Tablet Portrait: 481px - 767px
+- Mobile: 320px - 480px
+
+## 🐛 Troubleshooting
+
+### Audio Not Playing
+
+1. Check browser console for errors
+2. Verify audio file paths in `samples.json`
+3. Ensure audio files are in `data/audio/` directory
+4. Try different browser (some browsers block autoplay)
+
+### Charts Not Loading
+
+1. Check if D3.js loaded correctly (check console)
+2. Verify `data/metrics.json` is valid JSON
+3. Clear browser cache and reload
+
+### Styling Issues
+
+1. Check if all CSS files are loaded
+2. Verify file paths are correct
+3. Clear browser cache
+4. Try hard refresh (Ctrl+Shift+R)
 
 ## 📝 License
 
-This project is for research and educational purposes.  
+This demo website is part of the MAIA research project.  
 © 2025 MAIA Project. All rights reserved.
+
+## 👥 Authors
+
+- Yuxuan Liu
+- Peihong Zhang
+- Rui Sang
+- Zhixin Li
+- Shengchen Li
+
+**Institution**: Xi'an Jiaotong-Liverpool University
+
+## 📧 Contact
+
+For questions or issues, please contact:  
+shengchen.li@xjtlu.edu.cn
+
+## 🙏 Acknowledgments
+
+- WaveSurfer.js for audio visualization
+- D3.js for data visualizations
+- ISMIR 2025 for hosting our research
 
 ---
 
-**Built for the Music Information Retrieval (MIR) community 🎵**
+**Built with ❤️ for the MIR community**
 
